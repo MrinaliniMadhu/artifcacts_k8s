@@ -1,0 +1,32 @@
+ # VALUES THAT NEED TO BE CHANGED
+# <app-name> = Name of the application
+# <team-namespace> = Team namespace
+# <port> = Port to expose (likely 80)
+# <port-name> = Name of the port rule (such as 'http')
+# <target-port> = Port that needs to be open on the container
+# <image-name> = Name of the image pushed to the ACR
+# <tag> = Tag of image pushed to ACR (such as 'latest')
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: app_name
+  labels:
+    app: app_name
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  namespace: flumenot
+spec:
+  tls:
+    - hosts:
+      - ect-hackathon.optum.com
+      secretName: ect-hackathon-ingress-tls
+  rules:
+    - host: ect-hackathon.optum.com
+      http:
+        paths:
+          - path: /predict
+            backend:
+              serviceName: app_name
+              servicePort: 80

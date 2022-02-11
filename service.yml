@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: heart
+  labels: 
+    app: heart
+  namespace: flumenot
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80 #1234
+      protocol: TCP
+      name: http
+      targetPort: 5000
+  selector:
+    app: heart
