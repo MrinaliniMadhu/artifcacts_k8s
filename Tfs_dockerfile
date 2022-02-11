@@ -1,0 +1,15 @@
+FROM tensorflow/serving:latest
+
+MAINTAINER MRINALINI M mrinalini_m@optum.com
+
+COPY models/cdb/ models/cdb
+
+COPY models/ndb/ models/ndb
+
+COPY models/rx/ models/rx
+
+COPY models/models.conf  models/models.conf
+
+# ENV MODEL_NAME=supervised_model
+
+# EXPOSE 8601

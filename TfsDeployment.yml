@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dqcml-3in1-nonprod
+  name: <app-name>
   labels:
-    run: dqcml-3in1-nonprod
+    run: <app-name>
 spec:
   selector:
     matchLabels:
-      run: dqcml-3in1-nonprod
-  replicas: 1
+      run: <app-name>
+  replicas: 2
   template:
     metadata:
       labels:
-        run: dqcml-3in1-nonprod
+        run: <app-name>
     spec:
       securityContext:
         runAsUser: 1001
       containers:
-      - image: <some_art_repo>:<image>
-        name: dqcml-3in1-nonprod
+      - image: <container-path from repo>
+        name: <app-name>
         args:
         -  "--model_config_file=/models/models.conf"
         ports:
@@ -26,11 +26,11 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "2Gi"
-            cpu: "1"
+            memory: "5Gi"
+            cpu: "2"
           limits:
-            memory: "10Gi"
-            cpu: "4"
+            memory: "15Gi"
+            cpu: "10"
             
       restartPolicy: Always
   # strategy: Recreate 
