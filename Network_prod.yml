@@ -1,0 +1,16 @@
+  apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    generation: 1
+    name: dqcml-web-prod
+  spec:
+    ingress:
+      - ports:
+        - port: 9000
+          protocol: TCP
+    egress:
+      - {}
+ 
+    podSelector:
+      matchLabels:
+       run: dqcml-web
