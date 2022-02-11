@@ -16,7 +16,7 @@ spec:
         app: heart
     spec:
       containers:
-        - image: ecthackathonacr.azurecr.io/mvp_sample_check:first_docker
+        - image: <your_docker_path>
           imagePullPolicy: Always
           name: heart
           ports:
