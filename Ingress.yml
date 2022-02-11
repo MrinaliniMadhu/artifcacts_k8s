@@ -20,10 +20,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - ect-hackathon.optum.com
+      -  <HOST>
       secretName: ect-hackathon-ingress-tls
   rules:
-    - host: ect-hackathon.optum.com
+    - host: <HOST>
       http:
         paths:
           - path: /predict
