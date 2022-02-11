@@ -21,7 +21,7 @@ spec:
   tls:
     - hosts:
       -  <HOST>
-      secretName: ect-hackathon-ingress-tls
+      secretName: <SECRET>
   rules:
     - host: <HOST>
       http:
