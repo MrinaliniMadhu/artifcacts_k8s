@@ -2,9 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: dqcml-3in1-nonprod
-  name: dqcml-3in1-nonprod
-  namespace: dqcnonprod
+    run: <app-name>
+  name:  <app-name>
+  namespace: <namespace>
 spec:
   type: NodePort
   ports:
@@ -12,6 +12,6 @@ spec:
     port: 8501
     targetPort: 8501
     protocol: TCP
-    name: dqcml-3in1-nonprod
+    name:  <app-name>
   selector:
-    run: dqcml-3in1-nonprod
+    run:  <app-name>
