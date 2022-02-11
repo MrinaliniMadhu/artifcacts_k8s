@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: dqcml-3in1-nonprod
+  name: dqcml-3in1-nonprod
+  namespace: dqcnonprod
+spec:
+  type: NodePort
+  ports:
+  - nodePort: 30570
+    port: 8501
+    targetPort: 8501
+    protocol: TCP
+    name: dqcml-3in1-nonprod
+  selector:
+    run: dqcml-3in1-nonprod
