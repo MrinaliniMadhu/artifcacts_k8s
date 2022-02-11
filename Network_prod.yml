@@ -2,7 +2,7 @@
   kind: NetworkPolicy
   metadata:
     generation: 1
-    name: dqcml-web-prod
+    name: <APP-NAME>
   spec:
     ingress:
       - ports:
@@ -13,4 +13,4 @@
  
     podSelector:
       matchLabels:
-       run: dqcml-web
+       run: <APP-NAME>
